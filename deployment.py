@@ -179,7 +179,8 @@ plt.title('Distribution of Transaction Amounts by Suspicious Flag')
 plt.xlabel('Transaction Amount')
 plt.ylabel('Frequency')
 plt.legend(['Non-Suspicious', 'Suspicious'])
-plt.show()
+st.pyplot(plt)
+plt.clf()
 
 """**INFERENCES** **OF** **THIS** **GRAPH** : This graph shows the distribution of transaction amounts, categorized as "Suspicious" (blue) or "Non-Suspicious" (orange). Each bar represents the frequency of transactions within specific amount ranges, with a gray background indicating the overall total. The KDE curves suggest that "Non-Suspicious" transactions have a relatively consistent distribution across the range, with peaks around 20,000, 50,000, and 80,000. "Suspicious" transactions also appear consistently across amounts but show distinct peaks at different points, notably around 40,000 and 90,000. This pattern suggests that certain transaction amounts may be more prone to being flagged as suspicious, possibly due to thresholds or triggers used in monitoring systems."""
 
@@ -192,7 +193,8 @@ for column in selected_columns:
     plt.xlabel(f'Distribution of {column}')
     plt.ylabel('Frequency')
     plt.legend(['Non-Suspicious', 'Suspicious'])
-    plt.show()
+    st.pyplot(plt)
+    plt.clf()
 
 """# INFERENCES OF THE FOLLOWING GRAPHS:
 ***1***) This graph shows the frequency distribution of different account types (coded as 0, 1, and 2) and their classification as "Suspicious" (blue) or "Non-Suspicious" (orange). Most accounts across all types are non-suspicious, indicated by large gray bars with small colored segments at the top representing the flagged accounts. Account type "0" has the highest frequency of "Non-Suspicious" accounts, while account type "1" has a relatively higher proportion of "Suspicious" flags compared to the other types. The KDE curves for both categories are mostly flat, suggesting a consistent distribution without strong trends toward any specific account type being flagged, though account type "1" appears slightly more prone to suspicion.
@@ -210,7 +212,8 @@ for column in selected_columns:
 plt.figure(figsize=(6,4))
 sns.countplot(x='Suspicious Flag', data=df)
 plt.title('Distribution of Suspicious Flag')
-plt.show()
+st.pyplot(plt)
+plt.clf()
 
 # Suspicious vs Non-Suspicious Proportions
 proportions = df['Suspicious Flag'].value_counts(normalize=True)
@@ -222,17 +225,20 @@ for feature in categorical_features:
     plt.figure(figsize=(6,4))
     sns.countplot(x=feature, data=df, hue='Suspicious Flag')
     plt.title(f'{feature} by Suspicious Flag')
-    plt.show()
+    st.pyplot(plt)
+    plt.clf()
 
 #  Daily Limit by Transaction Type and Suspicious Flag
 plt.figure(figsize=(6,4))
 sns.boxplot(x='Transaction Type', y='Daily Limit', hue='Suspicious Flag', data=df)
 plt.title('Daily Limit by Transaction Type and Suspicious Flag')
-plt.show()
+st.pyplot(plt)
+plt.clf()
 
 #  Check if Cities have higher occurrences of suspicious transactions
 plt.figure(figsize=(6,4))
 sns.countplot(x='City', data=df, hue='Suspicious Flag')
 plt.title('Suspicious Transactions by City')
 plt.xticks(rotation=90)
-plt.show()
+st.pyplot(plt)
+plt.clf()
