@@ -10,6 +10,7 @@ import pandas as pd
 from faker import Faker
 import random
 import numpy as np
+import streamlit as st
 
 # Initialize Faker
 fake = Faker('en_IN')
