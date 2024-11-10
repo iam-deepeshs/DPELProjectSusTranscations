@@ -98,14 +98,14 @@ df = pd.DataFrame(data)
 """####To save the synthetic data into csv file"""
 
 # Save to CSV
-file_path = "Indian_Banking_Dataset.csv"
+file_path = 'Indian_Banking_Dataset.csv'
 df.to_csv(file_path, index=False)
 
 print(f"Data generated and saved to {file_path}")
 
 """####Reading the synthetic data file"""
 
-DATA = '/content/Indian_Banking_Dataset.csv'
+DATA = 'Indian_Banking_Dataset.csv'
 
 df = pd.read_csv(DATA)
 
